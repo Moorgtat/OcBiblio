@@ -27,5 +27,8 @@ public class User {
     private String pseudo;
     @Size(min = 8, max = 20)
     private String password;
+    @Size(min = 4, max = 20)
+    private String role;
+
 
 }
