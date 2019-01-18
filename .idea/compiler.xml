@@ -9,6 +9,7 @@
         <module name="book-service" />
         <module name="loan-service" />
         <module name="service-config" />
+        <module name="service-proxi" />
         <module name="service-register" />
         <module name="user-service" />
       </profile>
@@ -17,6 +18,7 @@
       <module name="book-service" target="1.8" />
       <module name="loan-service" target="1.8" />
       <module name="service-config" target="1.8" />
+      <module name="service-proxi" target="1.8" />
       <module name="service-register" target="1.8" />
       <module name="user-service" target="1.8" />
     </bytecodeTargetLevel>

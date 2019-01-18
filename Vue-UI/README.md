@@ -1,6 +1,6 @@
-# vue-ui-client
+# vue-ui
 
-> La vue basé sur la technologie vue.js de OcBiblio.
+> La vue basé sur la technologie Vue.Js de mon projet OcBiblio.
 
 ## Build Setup
 
@@ -16,15 +16,6 @@ npm run build
 
 # build for production and view the bundle analyzer report
 npm run build --report
-
-# run unit tests
-npm run unit
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
 ```
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).

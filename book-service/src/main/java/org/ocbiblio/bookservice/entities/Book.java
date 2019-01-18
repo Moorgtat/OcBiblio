@@ -28,4 +28,9 @@ public class Book {
     @Size(min = 1, max = 50)
     private String auteur;
 
+    public Book(@Size(min = 1, max = 50) String titre, @Size(min = 10, max = 250) String description, @Size(min = 1, max = 50) String auteur) {
+        this.titre = titre;
+        this.description = description;
+        this.auteur = auteur;
+    }
 }

@@ -25,10 +25,15 @@ public class User {
     private String mail;
     @Size(min = 4, max = 50)
     private String pseudo;
-    @Size(min = 8, max = 20)
+    @Size(min = 4, max = 20)
     private String password;
     @Size(min = 4, max = 20)
     private String role;
 
-
+    public User(@Size(min = 10, max = 50) String mail, @Size(min = 4, max = 50) String pseudo, @Size(min = 4, max = 20) String password, @Size(min = 4, max = 20) String role) {
+        this.mail = mail;
+        this.pseudo = pseudo;
+        this.password = password;
+        this.role = role;
+    }
 }

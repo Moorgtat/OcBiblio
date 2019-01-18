@@ -5,8 +5,10 @@
       <module fileurl="file://$PROJECT_DIR$/book-service/book-service.iml" filepath="$PROJECT_DIR$/book-service/book-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/loan-service/loan-service.iml" filepath="$PROJECT_DIR$/loan-service/loan-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/service-config/service-config.iml" filepath="$PROJECT_DIR$/service-config/service-config.iml" />
+      <module fileurl="file://$PROJECT_DIR$/service-proxi/service-proxi.iml" filepath="$PROJECT_DIR$/service-proxi/service-proxi.iml" />
       <module fileurl="file://$PROJECT_DIR$/service-register/service-register.iml" filepath="$PROJECT_DIR$/service-register/service-register.iml" />
       <module fileurl="file://$PROJECT_DIR$/user-service/user-service.iml" filepath="$PROJECT_DIR$/user-service/user-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/vue-ui/vue-ui.iml" filepath="$PROJECT_DIR$/vue-ui/vue-ui.iml" />
     </modules>
   </component>
 </project>
