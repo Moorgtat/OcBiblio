@@ -1,7 +1,7 @@
 {
   "name": "vue-ui",
   "version": "1.0.0",
-  "description": "La vue basé sur la technologie Vue.Js de mon projet OcBiblio.",
+  "description": "La vue de mon projet OcBiblio basé sur la techno Vue.Js.",
   "author": "Moorgtat <mat.lecardinal@gmail.com>",
   "private": true,
   "scripts": {

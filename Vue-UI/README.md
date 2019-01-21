@@ -1,6 +1,6 @@
 # vue-ui
 
-> La vue basé sur la technologie Vue.Js de mon projet OcBiblio.
+> La vue de mon projet OcBiblio basé sur la techno Vue.Js.
 
 ## Build Setup
 
