@@ -1,103 +1,94 @@
 <template>
     <div id="Test">
-      <h2>Je cherche un livre...</h2>
-
+      <h2>J'ajoute un livre...</h2>
+      <p>J'ai fait don d'un de mes livres à la bibliothèque et je souhaite l'enregistrer
+        pour que d'autres personnes puissent le lire.</p>
       <div class="md-content" id="form-content">
-        <form id="form-search-books" class="form-group label-floating">
-          <div class="md-input-container">
-            <md-field>
-              <label>Titre</label>
-              <md-input id="titre" type="text" v-model="titre"></md-input>
-            </md-field>
-            <md-field>
-              <label>Auteur</label>
-              <md-input id="auteur" type="text" v-model="auteur"></md-input>
-            </md-field>
-          </div>
-          <md-button class="md-raised md-default" type="submit">Chercher</md-button>
-        </form>
-      </div>
-
-      <div id="result">
-        <p> Titre : {{ titre }} </p>
-        <p> Auteur : {{ auteur }} </p>
-      </div>
-
-      <div id="global-container">
-        <div class="md-content" id="booksContainer">
-          <md-card id="card-expanse" v-for="book in ListBooks" :key="book.id">
-            <md-card-media>
-              <img :src='book.image' alt="couverture du livre">
-            </md-card-media>
-            <md-card-header>
-              <div class="md-title">{{book.titre}}</div>
-              <div class="md-subhead">{{book.auteur}}</div>
-            </md-card-header>
-            <md-card-expand>
-              <md-card-actions md-alignment="space-between">
-                <div>
-                  <md-button>Emprunter</md-button>
-                </div>
-                <md-card-expand-trigger>
-                  <md-button>Description</md-button>
-                </md-card-expand-trigger>
-              </md-card-actions>
-              <md-card-expand-content>
-                <md-card-content>
-                  {{book.description}}
-                </md-card-content>
-              </md-card-expand-content>
-            </md-card-expand>
-          </md-card>
+      <form id="form-create-books" class="form-group label-floating">
+        <div class="md-input-container">
+      <md-field>
+        <label>Titre</label>
+        <md-input id="titre" name="titre" type="text" v-model="titre"></md-input>
+        <span class="md-helper-text">Indiquez le titre du livre.</span>
+      </md-field>
+      <md-field>
+        <label>Description</label>
+        <md-textarea id="description" name="description" type="text" v-model="description"></md-textarea>
+        <span class="md-helper-text">Résumé du livre.</span>
+      </md-field>
+      <md-field>
+        <label>Auteur</label>
+        <md-input id="auteur" name="auteur" type="text" v-model="auteur"></md-input>
+        <span class="md-helper-text">L'auteur du livre.</span>
+      </md-field>
+      <md-field>
+        <label>Image</label>
+        <md-input id="image" name="image" type="text" v-model="image"></md-input>
+        <span class="md-helper-text">Image de la couverture.</span>
+      </md-field>
+          <md-button class="md-raised md-default" @click="createbook">Créer</md-button>
         </div>
+      </form>
       </div>
     </div>
 </template>
 
-<script>export default {
+<script>import axios from 'axios'
+export default {
   name: 'Test',
   data () {
     return {
       titre: '',
+      description: '',
       auteur: '',
-      ListBooks: []
+      image: ''
+    }
+  },
+  methods: {
+    /* eslint-disable no-console */
+    createbook () {
+      axios.post('http://localhost:8282/book-service/createBook?titre=' + this.titre + '&description=' + this.description + '&auteur=' + this.auteur + '&image=' + this.image)
+      // axios.post('http://localhost:8282/book-service/createBook', {params: {titre: this.titre, description: this.description, auteur: this.auteur, image: this.image}})
+        .then(response => {
+          console.log(response.data)
+        }).catch(e => {
+          console.log('erreur', e)
+        })
     }
   }
 }
-// }
-//   method()
-// {
-//   cherche(book)
-//   {
-//     this.ListBooks = this.$http.get('http://localhost:8282/book-service/searchBooks/').then((response) => {
-//       console.log('succes', response)
-//       this.books = response.data
-//     }, (response) => {
-//       console.log('erreur', response)
-//     })
-//   }
-
 </script>
 
 <style scoped>
-  #global-container{
-    display: inline-block;
-    width: 70%;
-  }
-  #booksContainer{
-    width: fit-content;
-  }
-  #card-expanse{
-    width: 220px;
-    margin: 15px;
-    display: inline-block;
-    vertical-align: top;
-  }
   #form-content{
     margin: 0 auto;
     width: 400px;
   }
-  #form-search-books{
+  #form-create-books{
     margin: 40px;
   }
 </style>
+
+<!--<script>export default {-->
+  <!--name: 'Test',-->
+  <!--data () {-->
+    <!--return {-->
+      <!--titre: '',-->
+      <!--description: '',-->
+      <!--auteur: '',-->
+      <!--image: ''-->
+    <!--}-->
+  <!--},-->
+  <!--methods: {-->
+    <!--/* eslint-disable no-console */-->
+    <!--createbook () {-->
+      <!--this.$http.post('http://localhost:8282/book-service/createBook?titre=' + this.titre + '&description=' + this.description + '&auteur=' + this.auteur + '&image=' + this.image)-->
+        <!--.then(response => {-->
+          <!--console.log(response.data)-->
+        <!--}).catch(e => {-->
+        <!--console.log('erreur', e)-->
+      <!--})-->
+    <!--}-->
+  <!--}-->
+<!--}-->
+<!--</script>-->
