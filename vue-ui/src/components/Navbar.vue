@@ -23,11 +23,6 @@
         <md-menu-item href='/#/u-loan'>Ma liste de prêts</md-menu-item>
       </md-menu-content>
     </md-menu>
-
-    <md-menu>
-      <md-button class="md-alignment-right md-accent" id='boutonTest' href='/#/test' s>
-        <strong>Test</strong></md-button>
-    </md-menu>
   </div>
 </template>
 

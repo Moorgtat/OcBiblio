@@ -5,7 +5,6 @@ import BookSearch from '../components/BookSearch'
 import BookCreate from '../components/BookCreate'
 import UserInfo from '../components/UserInfo'
 import UserLoan from '../components/UserLoan'
-import Test from '../components/Test'
 
 Vue.use(Router)
 
@@ -35,11 +34,6 @@ export default new Router({
       path: '/u-loan',
       name: 'UserLoan',
       component: UserLoan
-    },
-    {
-      path: '/test',
-      name: 'Test',
-      component: Test
     }
   ]
 })

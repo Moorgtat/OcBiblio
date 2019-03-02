@@ -9,5 +9,7 @@
 </script>
 
 <style scoped>
-
+#userinfo{
+  margin: 20px;
+}
 </style>

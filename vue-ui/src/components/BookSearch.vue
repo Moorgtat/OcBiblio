@@ -1,7 +1,7 @@
 <template>
   <div id='BookSearch'>
     <h2>Je cherche un livre...</h2>
-     <p>Tous nos livres sont disponible ici... </p>
+     <p>Tous nos livres sont disponible ici... <br> Clique sur chercher pour tous les afficher.</p>
     <div class="md-content" id="form-content">
       <form id="form-search-books" class="form-group label-floating">
         <div class="md-input-container">

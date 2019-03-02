@@ -9,5 +9,7 @@
 </script>
 
 <style scoped>
-
+#userloan{
+  margin: 20px;
+}
 </style>
