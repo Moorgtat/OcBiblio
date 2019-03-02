@@ -5,10 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.Size;
 
 @Entity
@@ -23,11 +20,11 @@ public class Book {
     private Long id;
     @Size(min = 1, max = 50)
     private String titre;
-    @Size(min = 10, max = 250)
+    @Size(min = 1, max = 250)
     private String description;
     @Size(min = 1, max = 50)
     private String auteur;
-    @Size(min = 10, max = 100)
+    @Size(min = 1, max = 100)
     private String image;
 
     public Book(@Size(min = 1, max = 50) String titre, @Size(min = 10, max = 250) String description,
