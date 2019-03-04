@@ -1,13 +1,9 @@
 package org.ocbiblio.userservice;
 
-//import org.ocbiblio.userservice.dao.UserRepository;
-//import org.ocbiblio.userservice.entities.User;
 //import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @SpringBootApplication
 public class UserServiceApplication implements CommandLineRunner {
@@ -21,7 +17,6 @@ public class UserServiceApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-
 //        User u1 = userRepository.save(new User("mat.lecardinal@gmail.com",
 //                "Mathieu",
 //                "1111",
@@ -46,7 +41,6 @@ public class UserServiceApplication implements CommandLineRunner {
 //                "Igor",
 //                "5555",
 //                "USER"));
-
     }
 }
 
