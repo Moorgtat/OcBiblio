@@ -55,7 +55,7 @@
               </md-card-expand-content>
             </md-card-expand>
           </md-card>
-          <md-button id="Retour" class="md-raised" href="/#/booksearch">Chercher mon livre</md-button>
+          <md-button id="Retour" class="md-raised" @click="retour" href="#create">Ajouter un autre livre</md-button>
         </div>
       </div>
     </div>
@@ -94,6 +94,14 @@ export default {
         }).catch(e => {
           console.log('erreur', e)
         })
+    },
+    retour () {
+      this.book.titre = ''
+      this.book.auteur = ''
+      this.book.description = ''
+      this.book.file = null
+      this.book.image = ''
+      this.submitted = false
     }
   }
 }

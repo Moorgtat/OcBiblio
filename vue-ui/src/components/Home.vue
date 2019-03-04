@@ -1,5 +1,9 @@
 <template>
-  <div class="home">
+  <div id="home">
+    <header>
+      <navbar/>
+    </header>
+    <div id="presentation">
       <h2> Bienvenue...</h2>
     <p>Je suis en manque de lecture.</p>
     <p>Je viens sur le site de la bibliothèque pour trouver un livre que je pourrais
@@ -8,13 +12,49 @@
     <p>Une fois rendu, je pourrais le notifer sur le site.</p>
     <p>Et j'aimerais si j'ai oublié de le rendre que l'on m'envoit un email pour me le
       rappeler.</p>
+    </div>
+    <div id="find">
+    <book-search/>
+    </div>
+    <div id="create">
+    <book-create/>
+    </div>
+    <div id="prets">
+      <user-loan/>
+    </div>
+    <div id="infos">
+    <user-info/>
+    </div>
   </div>
 </template>
 
-<script>export default {
-  name: 'Home'
-}
+<script>
+import Navbar from './Navbar'
+import BookSearch from './BookSearch'
+import BookCreate from './BookCreate'
+import UserInfo from './UserInfo'
+import UserLoan from './UserLoan'
+export default {
+  name: 'Home', components: {UserLoan, UserInfo, BookCreate, BookSearch, Navbar}}
 </script>
 
 <style scoped>
+  #presentation{
+    padding: 40px;
+  }
+  #find{
+    padding: 40px;
+  }
+  #create{
+    padding: 40px;
+  }
+  #prets{
+    height: 400px;
+    padding: 40px;
+  }
+  #infos{
+    height: 400px;
+    padding: 40px;
+    margin-bottom: 80px;
+  }
 </style>

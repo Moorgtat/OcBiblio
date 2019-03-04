@@ -78,7 +78,6 @@ export default {
   #global-container{
     display: inline-block;
     width: 70%;
-    margin-bottom: 100px;
   }
   #booksContainer{
     width: fit-content;

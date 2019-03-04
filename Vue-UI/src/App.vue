@@ -1,9 +1,11 @@
 <template>
   <div id="app">
-    <header>
-      <Navbar/>
-    </header>
-    <router-view/>
+    <div id="log">
+    <router-link v-if="authenticated" to="/login" v-on:click.native="logout()" replace> <md-button>Logout</md-button></router-link>
+    </div>
+    <div id="content">
+    <router-view @authenticated="setAuthenticated"/>
+    </div>
   </div>
 </template>
 
@@ -11,7 +13,29 @@
 import Navbar from './components/Navbar'
 export default {
   name: 'App',
-  components: {Navbar}
+  components: {Navbar},
+  data () {
+    return {
+      authenticated: false,
+      mockAccount: {
+        username: 'mathieu',
+        password: '1234'
+      }
+    }
+  },
+  mounted () {
+    if (!this.authenticated) {
+      this.$router.replace({ name: 'Login' })
+    }
+  },
+  methods: {
+    setAuthenticated (status) {
+      this.authenticated = status
+    },
+    logout () {
+      this.authenticated = false
+    }
+  }
 }
 </script>
 
@@ -24,5 +48,8 @@ export default {
   font-size: larger;
   color: #2c3e50;
   margin-top: 60px;
+}
+#log {
+  margin-left: 60%;
 }
 </style>

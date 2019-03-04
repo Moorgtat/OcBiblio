@@ -4,23 +4,23 @@
     <h1>Oc'Biblio</h1>
 
     <md-menu md-align-trigger>
-      <md-button md-menu-trigger id='boutonMenuHome' href='/#/' style='text-decoration:none'>
+      <md-button md-menu-trigger id='boutonMenuHome' href="#presentation" style='text-decoration:none'>
         <strong>Home</strong></md-button>
     </md-menu>
 
     <md-menu md-direction='bottom-start'>
       <md-button md-menu-trigger><strong>Nos Livres</strong></md-button>
       <md-menu-content>
-        <md-menu-item href='/#/booksearch'>Trouver un Livre</md-menu-item>
-        <md-menu-item  href='/#/bookcreate'>Ajouter un Livre</md-menu-item>
+        <md-menu-item href="#find">Trouver un Livre</md-menu-item>
+        <md-menu-item  href="#create">Ajouter un Livre</md-menu-item>
       </md-menu-content>
     </md-menu>
 
     <md-menu md-direction='bottom-start'>
       <md-button md-menu-trigger><strong>Mon Profil</strong></md-button>
       <md-menu-content>
-        <md-menu-item href='/#/u-info'>Mes informations</md-menu-item>
-        <md-menu-item href='/#/u-loan'>Ma liste de prêts</md-menu-item>
+        <md-menu-item href="#infos">Mes informations</md-menu-item>
+        <md-menu-item href="#prets">Ma liste de prêts</md-menu-item>
       </md-menu-content>
     </md-menu>
   </div>
