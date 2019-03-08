@@ -17,11 +17,7 @@
     </md-menu>
 
     <md-menu md-direction='bottom-start'>
-      <md-button md-menu-trigger><strong>Mon Profil</strong></md-button>
-      <md-menu-content>
-        <md-menu-item href="#infos">Mes informations</md-menu-item>
-        <md-menu-item href="#prets">Ma liste de prêts</md-menu-item>
-      </md-menu-content>
+      <md-button md-menu-trigger href="#infos"><strong>Mes infos</strong></md-button>
     </md-menu>
   </div>
 </template>

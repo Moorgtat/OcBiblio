@@ -8,5 +8,6 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 @CrossOrigin
 @RepositoryRestResource
 public interface UserRepository extends JpaRepository <User, Long> {
-    User findUserByPseudo (String pseudo);
+
+    User findUserByPseudoAndPassword (String pseudo, String password);
 }

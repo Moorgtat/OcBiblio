@@ -4,7 +4,7 @@
       <navbar/>
     </header>
     <div id="presentation">
-      <h2> Bienvenue...</h2>
+      <h2> Bienvenue {{ $parent.user.pseudo }}...</h2>
     <p>Je suis en manque de lecture.</p>
     <p>Je viens sur le site de la bibliothèque pour trouver un livre que je pourrais
       emprunter.</p>
@@ -19,9 +19,6 @@
     <div id="create">
     <book-create/>
     </div>
-    <div id="prets">
-      <user-loan/>
-    </div>
     <div id="infos">
     <user-info/>
     </div>
@@ -33,9 +30,9 @@ import Navbar from './Navbar'
 import BookSearch from './BookSearch'
 import BookCreate from './BookCreate'
 import UserInfo from './UserInfo'
-import UserLoan from './UserLoan'
 export default {
-  name: 'Home', components: {UserLoan, UserInfo, BookCreate, BookSearch, Navbar}}
+  name: 'Home',
+  components: {UserInfo, BookCreate, BookSearch, Navbar}}
 </script>
 
 <style scoped>
@@ -46,10 +43,6 @@ export default {
     padding: 40px;
   }
   #create{
-    padding: 40px;
-  }
-  #prets{
-    height: 400px;
     padding: 40px;
   }
   #infos{

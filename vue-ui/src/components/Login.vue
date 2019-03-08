@@ -1,13 +1,15 @@
 <template>
-  <div id="login">
+  <div id="Login">
     <h1>Login</h1>
     <input type="text" name="username" v-model="input.username" placeholder="Username" />
     <input type="password" name="password" v-model="input.password" placeholder="Password" />
-    <button type="button" v-on:click="login()">Login</button>
+    <button type="button" @click="login">Login</button>
   </div>
+
 </template>
 
-<script>/* eslint-disable */
+<script>import axios from 'axios'
+/* eslint-disable */
   export default {
     name: 'Login',
     data() {
@@ -20,23 +22,30 @@
     },
     methods: {
       login () {
-        if(this.input.username != '' && this.input.password != '') {
-          if(this.input.username == this.$parent.mockAccount.username && this.input.password == this.$parent.mockAccount.password) {
-            this.$emit('authenticated', true);
-            this.$router.replace({ name: 'Home' });
-          } else {
-            console.log('The username and / or password is incorrect')
-          }
-        } else {
+        axios.get('http://localhost:8081/LoadUser/?pseudo=' + this.input.username + '&password=' + this.input.password)
+          .then(response => {
+            this.user = response.data
+            this.$emit('SendUser', this.user)
+          console.log('succes', response)
+        }, (response) => {
+          console.log('erreur', response)
+        })
+        if(this.input.username === this.$parent.user.pseudo && this.input.password === this.$parent.user.password) {
+          this.$emit('authenticated', true);
+          this.$router.replace({ name: 'Home' });
+        }
+        else if(this.input.username !== '' && this.input.password !== '') {
+          console.log('The username and / or password is incorrect')}
+        else {
           console.log('A username and password must be present')
+          }
         }
       }
     }
-  }
 </script>
 
 <style scoped>
-  #login {
+  #Login {
     width: 400px;
     border: 1px solid #CCCCCC;
     background-color: #FFFFFF;

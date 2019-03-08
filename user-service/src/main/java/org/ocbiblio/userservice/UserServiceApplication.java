@@ -19,28 +19,23 @@ public class UserServiceApplication implements CommandLineRunner {
     public void run(String... args) throws Exception {
 //        User u1 = userRepository.save(new User("mat.lecardinal@gmail.com",
 //                "Mathieu",
-//                "1111",
-//                "ADMIN"));
+//                "1111"));
 //
 //        User u2 = userRepository.save(new User("elorna@gmail.com",
 //                "Elorna",
-//                "2222",
-//                "USER"));
+//                "2222"));
 //
 //        User u3 = userRepository.save(new User("virgil@gmail.com",
 //                "Virgil",
-//                "3333",
-//                "USER"));
+//                "3333"));
 //
 //        User u4 = userRepository.save(new User("anna@gmail.com",
 //                "Anna",
-//                "4444",
-//                "USER"));
+//                "4444"));
 //
 //        User u5 = userRepository.save(new User("Igor@gmail.com",
 //                "Igor",
-//                "5555",
-//                "USER"));
+//                "5555"));
     }
 }
 

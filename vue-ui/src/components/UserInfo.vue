@@ -1,7 +1,7 @@
 <template>
     <div id="userinfo">
       <h2>Mes informations...</h2>
-      <p> Cette page résume les informations sur l'utilisateur.</p>
+      <p> Les livres que j'emprunte , mes messages.</p>
     </div>
 </template>
 

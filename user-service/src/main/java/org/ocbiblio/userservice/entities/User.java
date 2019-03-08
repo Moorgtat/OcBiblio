@@ -4,11 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import org.ocbiblio.loanservice.entities.Loan;
-
 import javax.persistence.*;
-import javax.validation.constraints.Size;
-import java.util.Collection;
+
 
 @Entity
 @Data
@@ -23,13 +20,11 @@ public class User {
     private String mail;
     private String pseudo;
     private String password;
-    private String role;
 
-    public User(String mail, String pseudo, String password, String role) {
+    public User(String mail, String pseudo, String password) {
         this.mail = mail;
         this.pseudo = pseudo;
         this.password = password;
-        this.role = role;
     }
 
     public Long getId() {
@@ -62,13 +57,5 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
     }
 }
