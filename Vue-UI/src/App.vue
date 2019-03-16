@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div id="log">
-    <router-link v-if="authenticated" to="/login" v-on:click.native="logout()" replace><md-button>Logout</md-button></router-link>
+    <router-link v-if="authenticated" to="/login" v-on:click.native="logout()"><md-button>Logout</md-button></router-link>
     </div>
     <div id="content">
     <router-view @authenticated="setAuthenticated" @SendUser="populateUser"/>
@@ -16,17 +16,15 @@ export default {
     return {
       authenticated: false,
       user: {
-        id: '',
-        mail: '',
-        pseudo: '',
-        password: ''
+        id: '12568497',
+        mail: 'userinconu@unknow.fr',
+        pseudo: 'pa8za4553',
+        password: 't7-6z45ty'
       }
     }
   },
-  mounted () {
-    if (!this.authenticated) {
-      this.$router.replace({ name: 'Login' })
-    }
+  created () {
+    if (this.authenticated === false) { this.$router.replace({ name: 'Login' }) }
   },
   methods: {
     populateUser (event) {

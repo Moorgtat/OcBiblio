@@ -31,12 +31,14 @@
           console.log('erreur', response)
         })
         if(this.input.username === this.$parent.user.pseudo && this.input.password === this.$parent.user.password) {
-          this.$emit('authenticated', true);
-          this.$router.replace({ name: 'Home' });
+          this.$emit('authenticated', true)
+          this.$router.replace({ name: 'Home' })
         }
-        else if(this.input.username !== '' && this.input.password !== '') {
+        else if(this.input.username !== this.$parent.user.pseudo && this.input.password !== this.$parent.user.password) {
+          this.$emit('authenticated', false)
           console.log('The username and / or password is incorrect')}
-        else {
+        else if(this.input.username !== '' && this.input.password !== '') {
+          this.$emit('authenticated', false)
           console.log('A username and password must be present')
           }
         }

@@ -17,7 +17,7 @@
     </md-menu>
 
     <md-menu md-direction='bottom-start'>
-      <md-button md-menu-trigger href="#infos"><strong>Mes infos</strong></md-button>
+      <md-button md-menu-trigger href="#infos"><strong>Profil</strong></md-button>
     </md-menu>
   </div>
 </template>

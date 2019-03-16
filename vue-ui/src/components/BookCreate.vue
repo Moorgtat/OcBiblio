@@ -1,7 +1,7 @@
 <template>
   <div id="BookCreate">
-    <h2>J'ajoute un livre...</h2>
-    <p>J'ai fait don d'un de mes livres à la bibliothèque. <br> Et je souhaite l'enregistrer pour que d'autres
+    <h2>J'ajoute un livre</h2>
+    <p>Si tu veux faire don d'un de tes livres à la bibliothèque, <br> enregistre le pour que d'autres
       personnes puissent le lire.</p>
     <div class="md-content" id="form-content">
       <form v-if="!submitted" id="form-create-books" class="form-group label-floating">

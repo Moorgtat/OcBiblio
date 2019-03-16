@@ -1,7 +1,8 @@
 <template>
   <div id='BookSearch'>
-    <h2>Je cherche un livre...</h2>
-     <p>Tous nos livres sont disponible ici... <br> Clique sur chercher pour tous les afficher.</p>
+    <h2>Je cherche un livre</h2>
+     <p>Tous nos livres sont disponible ici {{user.pseudo}}! <br> Clique sur chercher pour tous les afficher ou
+       lance une recherche <br> par Titre et par Auteur.</p>
     <div class="md-content" id="form-content">
       <form id="form-search-books" class="form-group label-floating">
         <div class="md-input-container">
@@ -19,7 +20,7 @@
     </div>
 
     <div id="global-container">
-      <div class="md-content" id="booksContainer">
+      <div v-if="searched" class="md-content" id="booksContainer">
         <md-card id="card-expanse" v-for="book in ListBooks" :key="book.id">
           <md-card-media>
             <img :src='book.image' alt="couverture du livre">
@@ -31,7 +32,7 @@
           <md-card-expand>
             <md-card-actions md-alignment="space-between">
               <div>
-                <md-button>Emprunter</md-button>
+                <md-button href="#find" @click="createLoan(book.titre)">Emprunter</md-button>
               </div>
               <md-card-expand-trigger>
                 <md-button>Description</md-button>
@@ -45,6 +46,9 @@
           </md-card-expand>
         </md-card>
       </div>
+      <div v-if="loaned">
+        <span id="messloaned"> Vous avez emprunter <strong>{{ loan.nomLivre }}</strong> jusqu'au <strong>{{ loan.finPret }}</strong>.</span>
+      </div>
     </div>
   </div>
 </template>
@@ -52,19 +56,38 @@
 <script>import axios from 'axios'
 export default {
   name: 'BookSearch',
+  props: ['user'],
   data () {
     return {
+      searched: false,
+      loaned: false,
       titre: '',
       auteur: '',
-      ListBooks: []
+      ListBooks: [],
+      nomLivre: '',
+      loan: {}
     }
   },
   methods: {
     /* eslint-disable no-console */
     searchbooks () {
+      this.loaned = false
+      this.searched = false
       axios.get('http://localhost:8282/book-service/searchBooks/?titre=' + this.titre + '&auteur=' + this.auteur)
         .then(response => {
+          this.searched = true
           this.ListBooks = response.data
+          console.log('succes', response)
+        }, (response) => {
+          console.log('erreur', response)
+        })
+    },
+    createLoan (title) {
+      axios.post('http://localhost:8282/loan-service/createLoan/?pseudoEmprunteur=' + this.user.pseudo + '&nomLivre=' + title)
+        .then(response => {
+          this.loan = response.data
+          this.searched = false
+          this.loaned = true
           console.log('succes', response)
         }, (response) => {
           console.log('erreur', response)
@@ -94,5 +117,8 @@ export default {
   }
   #form-search-books{
     margin: 40px;
+  }
+  #messloaned{
+    margin: 20px;
   }
 </style>

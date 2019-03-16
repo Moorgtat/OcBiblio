@@ -4,23 +4,23 @@
       <navbar/>
     </header>
     <div id="presentation">
-      <h2> Bienvenue {{ $parent.user.pseudo }}...</h2>
-    <p>Je suis en manque de lecture.</p>
-    <p>Je viens sur le site de la bibliothèque pour trouver un livre que je pourrais
+      <h2> Bonjour {{ $parent.user.pseudo }}</h2>
+    <p>Tu es en manque de lecture.</p>
+    <p>Tu viens sur le site de la bibliothèque pour trouver un livre que tu pourrais
       emprunter.</p>
-    <p>Avec la possibilité de prolonger le prêt si je n'ai pas eu le temps de le lire.</p>
-    <p>Une fois rendu, je pourrais le notifer sur le site.</p>
-    <p>Et j'aimerais si j'ai oublié de le rendre que l'on m'envoit un email pour me le
-      rappeler.</p>
+    <p>Avec la possibilité de prolonger le prêt si tu n'as pas eu le temps de le lire.</p>
+    <p> Et de rendre le livre que tu as emprunté.</p>
+    <p>Mais aussi de donner un livre à la bibliothèque en l'ajoutant.</p>
+      <p>Bonne visite!</p>
     </div>
     <div id="find">
-    <book-search/>
+    <book-search :user="{ pseudo: $parent.user.pseudo, mail: $parent.user.mail}"/>
     </div>
     <div id="create">
     <book-create/>
     </div>
     <div id="infos">
-    <user-info/>
+    <user-info :user="{ pseudo: $parent.user.pseudo, mail: $parent.user.mail}"/>
     </div>
   </div>
 </template>
@@ -48,6 +48,6 @@ export default {
   #infos{
     height: 400px;
     padding: 40px;
-    margin-bottom: 80px;
+    margin-bottom: 220px;
   }
 </style>
