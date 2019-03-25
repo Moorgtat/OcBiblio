@@ -29,21 +29,21 @@
           .then(response => {
             this.user = response.data
             this.$emit('SendUser', this.user)
+            if(this.input.username === this.$parent.user.pseudo && this.input.password === this.$parent.user.password) {
+              this.$emit('authenticated', true)
+              this.$router.replace({ name: 'Home' })
+            }
+            else if(this.input.username !== this.$parent.user.pseudo && this.input.password !== this.$parent.user.password) {
+              this.$emit('authenticated', false)
+              console.log('The username and / or password is incorrect')}
+            else if(this.input.username !== '' && this.input.password !== '') {
+              this.$emit('authenticated', false)
+              console.log('A username and password must be present')
+            }
           console.log('succes', response)
         }, (response) => {
           console.log('erreur', response)
         })
-        if(this.input.username === this.$parent.user.pseudo && this.input.password === this.$parent.user.password) {
-          this.$emit('authenticated', true)
-          this.$router.replace({ name: 'Home' })
-        }
-        else if(this.input.username !== this.$parent.user.pseudo && this.input.password !== this.$parent.user.password) {
-          this.$emit('authenticated', false)
-          console.log('The username and / or password is incorrect')}
-        else if(this.input.username !== '' && this.input.password !== '') {
-          this.$emit('authenticated', false)
-          console.log('A username and password must be present')
-          }
         }
       }
     }
