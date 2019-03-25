@@ -25,12 +25,14 @@ public class Loan {
     private Date finPret;
     private String nomLivre;
     private String pseudoEmprunteur;
+    private Boolean authProlong;
 
-    public Loan(Date debutPret, Date finPret, String nomLivre, String pseudoEmprunteur) {
+    public Loan(Date debutPret, Date finPret, String nomLivre, String pseudoEmprunteur, Boolean authProlong) {
         this.debutPret = debutPret;
         this.finPret = finPret;
         this.nomLivre = nomLivre;
         this.pseudoEmprunteur = pseudoEmprunteur;
+        this.authProlong = authProlong;
     }
 
     public Long getId() {
@@ -71,5 +73,13 @@ public class Loan {
 
     public void setPseudoEmprunteur(String pseudoEmprunteur) {
         this.pseudoEmprunteur = pseudoEmprunteur;
+    }
+
+    public Boolean getAuthProlong() {
+        return authProlong;
+    }
+
+    public void setAuthProlong(Boolean authProlong) {
+        this.authProlong = authProlong;
     }
 }

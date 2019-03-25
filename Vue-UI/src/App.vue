@@ -1,11 +1,15 @@
 <template>
   <div id="app">
-    <div id="log">
-    <router-link v-if="authenticated" to="/login" v-on:click.native="logout()"><md-button>Logout</md-button></router-link>
-    </div>
-    <div id="content">
+    <div id="global-content">
+    <div id="gauche"></div>
+    <div id="centre">
+      <div id="log">
+        <router-link v-if="authenticated" to="/login" v-on:click.native="logout()"><md-button>Logout</md-button></router-link>
+      </div>
     <router-view @authenticated="setAuthenticated" @SendUser="populateUser"/>
     </div>
+    <div id="droite"></div>
+  </div>
   </div>
 </template>
 
@@ -49,9 +53,26 @@ export default {
   text-align: center;
   font-size: larger;
   color: #2c3e50;
-  margin-top: 60px;
 }
 #log {
   margin-left: 60%;
+  margin-top: 35px;
+}
+#global-content{
+  display: flex;
+}
+#centre{
+  width: 70%;
+  background-color: white;
+}
+#gauche{
+  background-image: url("assets/Background/biblio2.jpg");
+  opacity: 0.6;
+  width: 15%;
+}
+#droite{
+  background-image: url("assets/Background/biblio2.jpg");
+  opacity: 0.6;
+  width: 15%;
 }
 </style>

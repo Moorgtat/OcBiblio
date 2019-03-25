@@ -2,7 +2,8 @@
     <div id="userinfo">
       <h2>Profil de {{ user.pseudo}}</h2>
       <p> Voici la liste des livres que tu empruntes en ce moment {{ user.pseudo}}. <br>
-      N'oublie pas de les rendre en temps et en heure!</p>
+      Tu peux prolonger un emprunt une fois si tu n'as pas fini ta lecture. <br>
+      N'oublie pas de rendre le livre que tu as emprunté en temps et en heure!</p>
       <md-button @click="listLoan(user.pseudo)">Mes emprunts en cours</md-button>
       <div id="tableLoanContainer" v-if="clicked">
         <md-table id="tableLoan">
@@ -15,7 +16,10 @@
           <md-table-row v-for="loan in ListLoans" :key="loan.id">
             <md-table-cell>{{loan.nomLivre}}</md-table-cell>
             <md-table-cell>{{loan.finPret}}</md-table-cell>
-            <md-table-cell><md-button @click="PatchLoan(loan.id)">Prolonger</md-button></md-table-cell>
+            <md-table-cell>
+              <md-button v-if="loan.authProlong == true" @click="PatchLoan(loan.id)">Prolonger</md-button>
+              <md-button v-if="loan.authProlong == false" class="md-accent" disabled>Prolonger</md-button>
+            </md-table-cell>
             <md-table-cell><md-button @click="DeleteLoan(loan.id)">Rendre</md-button></md-table-cell>
           </md-table-row>
         </md-table>
@@ -85,12 +89,11 @@ export default {name: 'UserInfo',
 <style scoped>
 #userinfo{
   margin: 20px;
-
 }
 #tableLoanContainer{
-  margin-left: 30%;
+  margin-left: 10%;
 }
 #tableLoan{
-  width: 60%;
+  width: 90%;
 }
 </style>

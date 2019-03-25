@@ -1,8 +1,9 @@
 <template>
   <div id='BookSearch'>
     <h2>Je cherche un livre</h2>
-     <p>Tous nos livres sont disponible ici {{user.pseudo}}! <br> Clique sur chercher pour tous les afficher ou
-       lance une recherche <br> par Titre et par Auteur.</p>
+     <p>Tous nos livres sont disponible ici {{user.pseudo}}! Clique sur chercher<br>
+       pour tous les afficher ou lance une recherche par Titre et par Auteur. <br>
+       Tu peux emprunter jusque 5 livres en cliquant sur Emprunter.</p>
     <div class="md-content" id="form-content">
       <form id="form-search-books" class="form-group label-floating">
         <div class="md-input-container">
@@ -15,7 +16,7 @@
             <md-input id="auteur" name="auteur" type="text" v-model="auteur"></md-input>
           </md-field>
         </div>
-        <md-button class="md-raised md-default" @click="searchbooks">Chercher</md-button>
+        <md-button class="md-raised md-default" @click="searchbooks(); countLoans(user.pseudo);">Chercher</md-button>
       </form>
     </div>
 
@@ -32,7 +33,8 @@
           <md-card-expand>
             <md-card-actions md-alignment="space-between">
               <div>
-                <md-button href="#find" @click="createLoan(book.titre)">Emprunter</md-button>
+                <md-button v-if="intcountloans <= 4" href="#find" @click="createLoan(book.titre)">Emprunter</md-button>
+                <md-button v-if="intcountloans == 5" class="md-accent" disabled>Emprunter</md-button>
               </div>
               <md-card-expand-trigger>
                 <md-button>Description</md-button>
@@ -65,6 +67,7 @@ export default {
       auteur: '',
       ListBooks: [],
       nomLivre: '',
+      intcountloans: '',
       loan: {}
     }
   },
@@ -92,6 +95,14 @@ export default {
         }, (response) => {
           console.log('erreur', response)
         })
+    },
+    countLoans (pseudo) {
+      axios.post('http://localhost:8282/loan-service//CountLoansByUser/?pseudo=' + pseudo)
+        .then(response => {
+          this.intcountloans = response.data
+        }, (response) => {
+          console.log('erreur', response)
+        })
     }
   }
 }
@@ -100,7 +111,7 @@ export default {
 <style scoped>
   #global-container{
     display: inline-block;
-    width: 70%;
+    width: 95%;
   }
   #booksContainer{
     width: fit-content;

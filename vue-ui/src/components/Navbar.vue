@@ -30,6 +30,9 @@
     font-size: medium;
     font-family: "Calibri Light";
   }
+  .md-menu {
+    margin: 10px;
+  }
   .md-menu-item{
     font-family: "Calibri Light";
   }

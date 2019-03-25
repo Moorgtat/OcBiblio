@@ -48,6 +48,6 @@ export default {
   #infos{
     height: 400px;
     padding: 40px;
-    margin-bottom: 220px;
+    margin-bottom: 320px;
   }
 </style>

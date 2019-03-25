@@ -1,9 +1,12 @@
 <template>
   <div id="Login">
-    <h1>Login</h1>
+    <h1>OcBiblio</h1>
+    <div id="form-login">
+      <h2>Login</h2>
     <input type="text" name="username" v-model="input.username" placeholder="Username" />
     <input type="password" name="password" v-model="input.password" placeholder="Password" />
     <button type="button" @click="login">Login</button>
+    </div>
   </div>
 
 </template>
@@ -49,9 +52,15 @@
 <style scoped>
   #Login {
     width: 400px;
-    border: 1px solid #CCCCCC;
-    background-color: #FFFFFF;
+    height: 800px;
+    text-align: center;
     margin: auto;
+    padding-top: 180px;
+  }
+  #form-login{
+    border: 1px solid #CCCCCC;
+    border-radius: 12px;
+    background-color: #FFFFFF;
     padding: 20px;
   }
 </style>
