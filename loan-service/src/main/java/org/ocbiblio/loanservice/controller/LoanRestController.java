@@ -32,6 +32,12 @@ public class LoanRestController {
         return loanRepository.findAllByPseudoEmprunteur(pseudo);
     }
 
+    @RequestMapping("/ListPastLoans/")
+    public List<Loan> ListPastLoans  (@RequestParam(name = "pseudo", defaultValue = "") String pseudo) {
+        Date duJour = new Date();
+        return loanRepository.findAllByPseudoEmprunteurAndFinPretIsBefore(pseudo, duJour);
+    }
+
     @PostMapping("/createLoan/")
     public Loan loan(@RequestParam(name = "pseudoEmprunteur", defaultValue = "") String pseudoEmprunteur,
                      @RequestParam(name = "nomLivre", defaultValue = "") String nomLivre) {

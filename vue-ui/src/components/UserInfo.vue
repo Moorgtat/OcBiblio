@@ -4,7 +4,8 @@
       <p> Voici la liste des livres que tu empruntes en ce moment {{ user.pseudo}}. <br>
       Tu peux prolonger un emprunt une fois si tu n'as pas fini ta lecture. <br>
       N'oublie pas de rendre le livre que tu as emprunté en temps et en heure!</p>
-      <md-button @click="listLoan(user.pseudo)">Mes emprunts en cours</md-button>
+      <md-button @click="listLoan(user.pseudo)">Afficher mes emprunts en cours</md-button>
+      <md-button @click="listPastLoan(user.pseudo)">Afficher mes messages</md-button>
       <div id="tableLoanContainer" v-if="clicked">
         <md-table id="tableLoan">
           <md-table-row>
@@ -31,6 +32,13 @@
       <div v-if="rendre">
         <p> Nous avons bien reçu votre livre. Merci <strong>{{user.pseudo}}</strong>.</p>
       </div>
+      <div v-if="past">
+        <div v-if="ListPastLoans.length == 0"><p>Vous n'avez pas de message.</p></div>
+        <p v-for="loan in ListPastLoans" :key="loan.id"> <font-awesome-icon icon="bell" /> &nbsp; Vous devez rendre
+          <span id="pastnomlivre"> <b> {{loan.nomLivre}} </b> </span> depuis le
+          <span id="pastfinpret"> <b> {{loan.finPret}} </b> </span>.
+         </p>
+      </div>
     </div>
 </template>
 
@@ -42,7 +50,8 @@ export default {name: 'UserInfo',
       loan: {},
       rendre: false,
       prolonger: false,
-      clicked: false
+      clicked: false,
+      past: false
     }
   },
   methods: {
@@ -51,11 +60,26 @@ export default {name: 'UserInfo',
       this.rendre = false
       this.prolonger = false
       this.clicked = false
+      this.past = false
       axios.get('http://localhost:8282/loan-service/ListLoans/?pseudo=' + pseudo)
         .then(response => {
           this.ListLoans = response.data
           console.log('succes', response)
           this.clicked = true
+        }, (response) => {
+          console.log('erreur', response)
+        })
+    },
+    listPastLoan (pseudo) {
+      this.past = false
+      this.rendre = false
+      this.prolonger = false
+      this.clicked = false
+      axios.get('http://localhost:8282/loan-service/ListPastLoans/?pseudo=' + pseudo)
+        .then(response => {
+          this.ListPastLoans = response.data
+          console.log('succes', response)
+          this.past = true
         }, (response) => {
           console.log('erreur', response)
         })
@@ -95,5 +119,11 @@ export default {name: 'UserInfo',
 }
 #tableLoan{
   width: 90%;
+}
+#pastfinpret{
+ color: darkred;
+  }
+#pastnomlivre{
+  color: darkred;
 }
 </style>
