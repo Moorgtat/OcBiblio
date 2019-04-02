@@ -14,7 +14,7 @@ Mon système de gestion de Bibliothèque OC.
   passé 
 * Site Web Responsive  
 
-#Technologies utilisées :
+# Technologies utilisées
 Architecture Microservice autour de l'écosystème SPRING avec une
 Interface Utilisateur développé sous VUE.js.
 
@@ -26,7 +26,7 @@ Interface Utilisateur développé sous VUE.js.
 * MySQL (MySQL WorkBench)
 * Axios
 
-#Installation
+# Installation
 Réaliser un gitclone du projet dans votre repertoire de travail à 
 partir de ce lien : "https://github.com/Moorgtat/OcBiblio.git". 
 
@@ -44,12 +44,12 @@ Modifier le fichier application.properties à la racine du projet:
 Démarrez chaque microservices ainsi que L'UI avec la commande 
 "npm run dev".
 
-#Se connecter
+# Se connecter
 * Nom d'utilisateur : Mathieu Mdp: 1111 
 * Nom d'utilisateur : Elorna Mdp: 2222
 * Pour se connecter avec d'autres utilisateur se référer à la table 
 "user" dans la Bdd.
 
-#Auteur
+# Auteur
 Mathieu Le Cardinal dans le cadre de sa formation developpeur JAVA 
 chez OpenClassroom.
