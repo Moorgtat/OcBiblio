@@ -14,19 +14,19 @@ https://github.com/Moorgtat/OcBiblio
  
 # Technologies utilisées
 Architecture MICROSERVICE. Projet basé autour de l'écosystème 
-SPRING avec une UI développé avec le framework Javascript 
-VUE.js.
+SPRING avec une UI développée sous le framework Javascript 
+Vue.JS.
 
-* Spring Cloud 
-* Spring Boot
-* Spring Data
-* Vue.JS 
+* Spring CLOUD, EUREKA Discovery, ZUUL
+* Spring BOOT
+* Spring DATA / JPA / HIBERNATE
+* VUE.JS
 * Material Design 
-* MySQL (MySQL WorkBench)
+* MySQL (WorkBench)
 * Axios
 
 # Installation
-Réaliser un gitclone du projet dans votre repertoire de travail à 
+Réaliser un gitclone du projet dans votre répertoire de travail à 
 partir de ce lien : "https://github.com/Moorgtat/OcBiblio.git". 
 
 L'importer dans IntelliJ Idea.
