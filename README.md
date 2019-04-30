@@ -2,27 +2,25 @@
 Mon système de gestion de Bibliothèque OC.
 
 # Features
-* Se Connecter
-* Rechercher de Livres
-* Ajout de Livre
+* Site Web Responsive 
+* Connexion utilisateur
+* Recherche de Livres Multicritères
+* Ajout de Livre / Dl Couvertures
 * Gestion de Prêt de Livre
 * Limite de Prêt de livre
 * Limite de Prolongation de Prêt
-* Rendre un Livre
-* Affichage des emprunts en cours pour chaque User
-* Affichage d'un message lorsque la date limite d'un prêt est 
-  passé 
-* Site Web Responsive  
-
+* Simulation Remise Livres
+ 
 # Technologies utilisées
-Architecture Microservice autour de l'écosystème SPRING avec une
-Interface Utilisateur développé sous VUE.js.
+Architecture MICROSERVICE. Projet basé autour de l'écosystème 
+SPRING avec une UI développé avec le framework Javascript 
+VUE.js.
 
+* Spring Cloud 
 * Spring Boot
 * Spring Data
-* Spring Cloud 
 * Vue.JS 
-* Vue Material 
+* Material Design 
 * MySQL (MySQL WorkBench)
 * Axios
 
